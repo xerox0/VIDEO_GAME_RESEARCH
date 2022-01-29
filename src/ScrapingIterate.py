@@ -34,7 +34,7 @@ for link in videogames_links:
     for view in views:
         dev = ("".join(re.findall(r"\w", view["title"])))  # <-- find only digits in "title" attribute
     platform = soup.find('a', class_='font-weight-bold d-inline-block d-md-inline pb-3 pb-md-0 pr-3 pr-md-0').text
-    print(platform)
+    #print(platform)
     try:
         banner_prince = soup.find('a', class_='btn btn-block text-uppercase btn-warning lh-1 ls-n05').text.strip('\n').strip('\n')
     except:
@@ -56,7 +56,7 @@ for link in videogames_links:
     #print([nltk.word_tokenize(t) for t in videogames_names])
     games = {
         'name_and_console': name_and_console,
-        'description': description,
+        'description': description + "\n",
         'banner_prince': banner_prince,
         'developer': dev,
         #'publisher': pub
@@ -65,5 +65,7 @@ for link in videogames_links:
     f = open('/home/toore/gestione_dell_informazione/video_games_research/database/risultati_scraping.csv', 'a')
     f.write('%s\n' % games)
     f.close()
-    print(games)
-
+    #print(games)
+    g = open('/home/toore/gestione_dell_informazione/video_games_research/database/risultati_scraping.txt', 'a')
+    g.write('%s\n' % games)
+    g.close()
