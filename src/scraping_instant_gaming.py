@@ -8,7 +8,7 @@ def start_soup(link):
     soup = BeautifulSoup(response.text, 'html.parser')
     return soup
 
-f = open('../database/giochi.txt', 'w')
+f = open('./scrape_instant_gaming.txt', 'w')
 
 for x in range(5, 100, 5):  # 5 solo per testare, poi bisogna aggiungerne altre
     base_link = f"https://www.instant-gaming.com/it/ricerca/?sort_by=avail_date_asc&page={x}"

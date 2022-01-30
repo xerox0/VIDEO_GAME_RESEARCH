@@ -46,13 +46,13 @@ for link in videogames_links:
     from nltk.stem import PorterStemmer
 #aggiungere sviluppatore, pubblicatore , woosh.
 
-    ps = nltk.PorterStemmer()
-    for w in videogames_description:
-        rootWord = ps.stem(w)
-        #print(rootWord)
-        g = open('/home/toore/gestione_dell_informazione/video_games_research/database/risultatiStamming.txt','a')
-        g.write('%s\n' % rootWord)
-        g.close()
+    # ps = nltk.PorterStemmer()
+    # for w in videogames_description:
+    #     rootWord = ps.stem(w)
+    #     #print(rootWord)
+    #     g = open('./database/risultatiStamming.txt','a')
+    #     g.write('%s\n' % rootWord)
+    #     g.close()
     #print([nltk.word_tokenize(t) for t in videogames_names])
     games = {
         'name_and_console': name_and_console,
@@ -62,10 +62,10 @@ for link in videogames_links:
         #'publisher': pub
     }
    
-    f = open('/home/toore/gestione_dell_informazione/video_games_research/database/risultati_scraping.csv', 'a')
-    f.write('%s\n' % games)
-    f.close()
+    # f = open('./database/risultati_scraping.csv', 'a')
+    # f.write('%s\n' % games)
+    # f.close()
     #print(games)
-    g = open('/home/toore/gestione_dell_informazione/video_games_research/database/risultati_scraping.txt', 'a')
+    g = open('./scrape_instant_gaming.txt', 'a')
     g.write('%s\n' % games)
     g.close()
