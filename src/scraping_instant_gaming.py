@@ -8,9 +8,10 @@ def start_soup(link):
     soup = BeautifulSoup(response.text, 'html.parser')
     return soup
 
+
 f = open('./scrape_instant_gaming.txt', 'w')
 
-for x in range(5, 100, 5):  # 5 solo per testare, poi bisogna aggiungerne altre
+for x in range(1,2):  # 5 solo per testare, poi bisogna aggiungerne altre
     base_link = f"https://www.instant-gaming.com/it/ricerca/?sort_by=avail_date_asc&page={x}"
     print(f'Scansiono la pag n.{x}')
     game_tag = start_soup(base_link).find_all('a', class_='cover')  # è il tag 'a' che contiene il link della pagina del gioco
@@ -23,17 +24,26 @@ for x in range(5, 100, 5):  # 5 solo per testare, poi bisogna aggiungerne altre
             # ci sono pagine senza descrizione. In tal caso vado avanti
             if game_description is None:
                 continue
-            game_developer = game_soup.find('a', content='Developer').string.replace('\n', ' ')
-            game_publisher = game_soup.find('a', content='Publisher').string.replace('\n', ' ')
+            game_developer = game_soup.find('a', content='Developer').string.replace('\n', '')
+            # game_publisher = game_soup.find('a', content='Publisher').string.replace('\n', ' ')
+            platform = game_soup.find('div', class_='subinfos').contents[1]
+            l = []
+            for string in platform.strings:
+                l.append(string)
+            platform = l[1].replace('\n', "")
+            print(platform)
         except:
             continue
 
         print(game_title)
-        f.write(f'{game_title}\n '
-                f'Sviluppato da: {game_developer}\n '
-                f'Pubblicato da: {game_publisher}\n ')
+        f.write(
+                f'{game_title}\n'
+                f'{game_developer}\n'
+                # f'Pubblicato da: {game_publisher}\n '
+                f'{platform}\n'
+                )
         for string in game_description.stripped_strings:  # estrae la descrizione, senza i tag html
             f.write(string)
-        f.write('\n\n')
+        f.write('\n')
 
 f.close()
