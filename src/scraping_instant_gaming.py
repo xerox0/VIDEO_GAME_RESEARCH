@@ -9,29 +9,29 @@ def start_soup(link):
     return soup
 
 
-f = open('./scrape_instant_gaming.txt', 'w')
+f = open('../database/scrape_instant_gaming.txt', 'w')
 
-for x in range(1,2):  # 5 solo per testare, poi bisogna aggiungerne altre
+for x in range(5,120,5):  # i giochi sono in ordine di uscita, facendo così prendo giochi usciti in un lungo lasso di tempo
     base_link = f"https://www.instant-gaming.com/it/ricerca/?sort_by=avail_date_asc&page={x}"
     print(f'Scansiono la pag n.{x}')
     game_tag = start_soup(base_link).find_all('a', class_='cover')  # è il tag 'a' che contiene il link della pagina del gioco
     for tag in game_tag:
         try:
-            game_link = tag.get('href')  # estraggo il link della pagina del singolo gioco, per fare lo scraping della pagina
+            game_link = tag.get('href')  # prendo il link della pagina del singolo gioco, per fare lo scraping della pagina
             game_soup = start_soup(game_link)
-            game_title = game_soup.find('h1').string  # estrae il titolo del gioco dal tag
+            game_title = game_soup.find('h1').string.replace('\n', '')  # estrae il titolo del gioco dal tag
             game_description = game_soup.find('div', itemprop='description')
             # ci sono pagine senza descrizione. In tal caso vado avanti
             if game_description is None:
                 continue
             game_developer = game_soup.find('a', content='Developer').string.replace('\n', '')
             # game_publisher = game_soup.find('a', content='Publisher').string.replace('\n', ' ')
+            # estrazione della piattaforma
             platform = game_soup.find('div', class_='subinfos').contents[1]
             l = []
             for string in platform.strings:
                 l.append(string)
             platform = l[1].replace('\n', "")
-            print(platform)
         except:
             continue
 
@@ -39,11 +39,13 @@ for x in range(1,2):  # 5 solo per testare, poi bisogna aggiungerne altre
         f.write(
                 f'{game_title}\n'
                 f'{game_developer}\n'
-                # f'Pubblicato da: {game_publisher}\n '
+                # f'{game_publisher}\n '
                 f'{platform}\n'
                 )
         for string in game_description.stripped_strings:  # estrae la descrizione, senza i tag html
+            string = string.replace('\n', ' ')
             f.write(string)
         f.write('\n')
 
+f.write('EOF')
 f.close()

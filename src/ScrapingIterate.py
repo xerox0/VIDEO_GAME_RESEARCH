@@ -2,7 +2,6 @@ import bs4
 import  requests
 import  nltk
 import re
-nltk.download('punkt')
 
 base_url = 'https://multiplayer.it'
 
@@ -17,15 +16,13 @@ for x in range (1,3): #il numero del range è 3327 per comodità testiamo su 2
             videogames_links.append(base_url + link['href'])
 
 #test_link = 'https://multiplayer.it/giochi/mario-galaxy-2-per-wii.html'
-videogames_names = []
-videogames_description = []
-videogames_dev = []
-videogames_pub = []
+g = open('../database/scrape_multiplayer.txt', 'a')
+
 for link in videogames_links:
     r = requests.get(link) #, headers=headers)
     soup = bs4.BeautifulSoup(r.content, 'html.parser')
     name_and_console = soup.find('h1', class_='gamecard-title font-weight-bold ls-n1 lh-1 mb-3 mb-md-1 position-relative').text.strip('\n').strip('\n')
-    description = soup.find('div', class_='py-3').text.rstrip('\n').strip('\n')
+    description = soup.find('div', class_='py-3')
 
     views = soup.findAll("a", class_="d-inline-block pb-3 pb-md-0 pr-3 pr-md-0 font-weight-bold")
     view='d-inline-block pb-3 pb-md-0 pr-3 pr-md-0 font-weight-bold'
@@ -39,33 +36,23 @@ for link in videogames_links:
         banner_prince = soup.find('a', class_='btn btn-block text-uppercase btn-warning lh-1 ls-n05').text.strip('\n').strip('\n')
     except:
         banner_prince = 'no rating'
-    videogames_names.append(name_and_console + '\n')
-    videogames_description.append(description + '\n')
-    videogames_dev.append(dev + '\n')
-    #videogames_pub.append(pub + '\n')
-    from nltk.stem import PorterStemmer
-#aggiungere sviluppatore, pubblicatore , woosh.
 
-    # ps = nltk.PorterStemmer()
-    # for w in videogames_description:
-    #     rootWord = ps.stem(w)
-    #     #print(rootWord)
-    #     g = open('./database/risultatiStamming.txt','a')
-    #     g.write('%s\n' % rootWord)
-    #     g.close()
-    #print([nltk.word_tokenize(t) for t in videogames_names])
-    games = {
-        'name_and_console': name_and_console,
-        'description': description + "\n",
-        'banner_prince': banner_prince,
-        'developer': dev,
-        #'publisher': pub
-    }
-   
-    # f = open('./database/risultati_scraping.csv', 'a')
-    # f.write('%s\n' % games)
-    # f.close()
-    #print(games)
-    g = open('./scrape_instant_gaming.txt', 'a')
-    g.write('%s\n' % games)
-    g.close()
+    # formattazione di nome e console
+    console = name_and_console.split()
+    name = console[:-1]
+    name = " ".join(name)
+    console = console[-1]
+    print(name, console)
+
+    g.write(
+        f'{name}\n'
+        f'{dev}\n'
+        f'{console}\n'
+    )
+    for string in description.stripped_strings:  # estrae la descrizione, senza i tag html
+        string = string.replace('\r\n', ' ')
+        g.write(f'{string}')
+    g.write('\n')
+
+g.write('EOF')
+g.close()
