@@ -1,0 +1,27 @@
+{%  extends 'base.html' %}
+{%  block title %} Videoooogame {% endblock %}
+
+{%  block content %}
+    <img src="{{ url_for('static', filename='logo.png') }}">
+    <form method="post" action="results.html">
+        <table>
+            <tbody>
+            <tr>
+                <th><input type="text" name="generic" placeholder="Digita del testo"></th>
+            </tr>
+            <tr>
+                <th><input type="text" name="developer" placeholder="Cerca per sviluppatore"></th>
+            </tr>
+            <tr>
+                <th><input type="text" name="platform" placeholder="Cerca per piattaforma"></th>
+            </tr>
+            <tr>
+                <th><input type="submit" value="Vai ai risultati ">
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}
+
+
