@@ -9,7 +9,6 @@ from whoosh.query import Every
 
 
 def preprocessing(text):
-
     stop_words = set(stopwords.words('italian'))
     text_processed = []
     for r in text:
@@ -26,32 +25,32 @@ def preprocessing(text):
     return text_stemmed
 
 
-schema = Schema(title=TEXT(stored=True), content=TEXT(stored=True), content_preprocessed=TEXT,
-                platform=TEXT(stored=True), developer=TEXT(stored=True))
+def indexing(file, x):
+    schema = Schema(title=TEXT(stored=True), content=TEXT(stored=True), content_preprocessed=TEXT,
+                    platform=TEXT(stored=True), developer=TEXT(stored=True))
 
-if not os.path.exists("indexdir"):
-    os.mkdir("../indexdir")
-ix = create_in("../indexdir", schema)
+    if not os.path.exists(f"indexdir_{x}"):
+        os.mkdir(f"../indexdir_{x}")
+    ix = create_in(f"../indexdir{x}", schema)
+    f = open(file, 'r')
+    l = []  # inserirò i nomi dei giochi. servirà poi per verificare se un gioco è stato già inserito
+    while True:
+        writer = ix.writer()
+        scraped_title = f.readline()
+        if scraped_title == 'EOF':  # controllo se sono arrivato alla fine del file
+            break
 
-f = open('../database/scrape_multiplayer.txt', 'r')
-l = []  # inserirò i nomi dei giochi. servirà poi per verificare se un gioco è stato già inserito
-while True:
-    writer = ix.writer()
-    scraped_title = f.readline()
-    if scraped_title == 'EOF':  # controllo se sono arrivato alla fine del file
-        break
+        scraped_developer = f.readline()
+        scraped_platform = f.readline()
+        scraped_content = f.readline()
 
-    scraped_developer = f.readline()
-    scraped_platform = f.readline()
-    scraped_content = f.readline()
+        if scraped_title in l:  # se il gioco è stato già inserito nell'indice, non reinserirlo
+            writer.commit()
+            continue
 
-    if scraped_title in l:  # se il gioco è stato già inserito nell'indice, non reinserirlo
-        writer.commit()
-        continue
-
-    l.append(scraped_title)
-    print(scraped_title)
-    # ix = open_dir("../indexdir")
+        l.append(scraped_title)
+        print(scraped_title)
+        # ix = open_dir("../indexdir")
     # searcher = ix.searcher()
     # parser = QueryParser("title", ix.schema)
     #
@@ -69,8 +68,10 @@ while True:
     writer.commit()
 
 
-r = ix.searcher().search(Every('title'), limit=None, sortedby='title')
-print(len(r))
-for x in r:
-    print(x['title'])
+#     r = ix.searcher().search(Every('title'), limit=None, sortedby='title')
+#     print(len(r))
+#     for x in r:
+#         print(x['title'])
 
+indexing('../database/scrape_multiplayer.txt', '1')
+indexing('../database/scrape_instant_gaming.txt', '2')
