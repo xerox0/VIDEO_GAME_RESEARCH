@@ -1,0 +1,121 @@
+nome : Super Mario Galaxy 2 wii
+ nome : Grand Theft Auto IV x360
+ nome : Grand Theft Auto IV ps3
+ nome : Half-Life 2 pc
+ nome : Halo 2 xbox
+ nome : Grand Theft Auto: San Andreas ps2
+ nome : The Last of Us Parte II ps4
+ nome : The Legend of Zelda: Breath of the Wild nsw
+ nome : The Legend of Zelda: Breath of the Wild wiiu
+ nome : Uncharted 4: Fine di un Ladro ps4
+ nome : Grand Theft Auto V (GTA 5) pc
+ nome : Grand Theft Auto V (GTA 5) ps4
+ nome : Grand Theft Auto V (GTA 5) xone
+ nome : Grand Theft Auto V (GTA 5) ps3
+ nome : Grand Theft Auto V (GTA 5) x360
+ nome : The Last of Us ps3
+ nome : The Elder Scrolls V: Skyrim ps3
+ nome : The Elder Scrolls V: Skyrim x360
+ nome : The Elder Scrolls V: Skyrim pc
+ nome : Uncharted 3: L'Inganno di Drake ps3
+ nome : LittleBigPlanet ps3
+ nome : Super Mario Galaxy wii
+ nome : Resident Evil 4 (Biohazard 4) gc
+ nome : Xenoblade Chronicles: Definitive Edition nsw
+ nome : Persona 5 Royal ps4
+ nome : Red Dead Redemption 2 ps4
+ nome : Red Dead Redemption 2 xone
+ nome : Persona 5 ps4
+ nome : Xenoblade Chronicles X wiiu
+ nome : Super Mario Galaxy 2 wiiu
+ nome : Mario Kart 8 wiiu
+ nome : Bravely Default 3ds
+ nome : Super Mario 3D World wiiu
+ nome : Pokémon X 3ds
+ nome : Pokémon Y 3ds
+ nome : Fire Emblem: Awakening 3ds
+ nome : Minecraft pc
+ nome : Xenoblade Chronicles wii
+ nome : LittleBigPlanet 2 ps3
+ nome : StarCraft II: Wings of Liberty pc
+ nome : Super Mario Galaxy 2 wii
+ nome : Grand Theft Auto IV x360
+ nome : Grand Theft Auto IV ps3
+ nome : Half-Life 2 pc
+ nome : Halo 2 xbox
+ nome : Grand Theft Auto: San Andreas ps2
+ nome : The Last of Us Parte II ps4
+ nome : The Legend of Zelda: Breath of the Wild nsw
+ nome : The Legend of Zelda: Breath of the Wild wiiu
+ nome : Uncharted 4: Fine di un Ladro ps4
+ nome : Grand Theft Auto V (GTA 5) pc
+ nome : Grand Theft Auto V (GTA 5) ps4
+ nome : Grand Theft Auto V (GTA 5) xone
+ nome : Grand Theft Auto V (GTA 5) ps3
+ nome : Grand Theft Auto V (GTA 5) x360
+ nome : The Last of Us ps3
+ nome : The Elder Scrolls V: Skyrim ps3
+ nome : The Elder Scrolls V: Skyrim x360
+ nome : The Elder Scrolls V: Skyrim pc
+ nome : Uncharted 3: L'Inganno di Drake ps3
+ nome : LittleBigPlanet ps3
+ nome : Super Mario Galaxy wii
+ nome : Resident Evil 4 (Biohazard 4) gc
+ nome : Xenoblade Chronicles: Definitive Edition nsw
+ nome : Persona 5 Royal ps4
+ nome : Red Dead Redemption 2 ps4
+ nome : Red Dead Redemption 2 xone
+ nome : Persona 5 ps4
+ nome : Xenoblade Chronicles X wiiu
+ nome : Super Mario Galaxy 2 wiiu
+ nome : Mario Kart 8 wiiu
+ nome : Bravely Default 3ds
+ nome : Super Mario 3D World wiiu
+ nome : Pokémon X 3ds
+ nome : Pokémon Y 3ds
+ nome : Fire Emblem: Awakening 3ds
+ nome : Minecraft pc
+ nome : Xenoblade Chronicles wii
+ nome : LittleBigPlanet 2 ps3
+ nome : StarCraft II: Wings of Liberty pc
+ nome : Super Mario Galaxy 2 wii
+ nome : Grand Theft Auto IV x360
+ nome : Grand Theft Auto IV ps3
+ nome : Half-Life 2 pc
+ nome : Halo 2 xbox
+ nome : Grand Theft Auto: San Andreas ps2
+ nome : The Last of Us Parte II ps4
+ nome : The Legend of Zelda: Breath of the Wild nsw
+ nome : The Legend of Zelda: Breath of the Wild wiiu
+ nome : Uncharted 4: Fine di un Ladro ps4
+ nome : Grand Theft Auto V (GTA 5) pc
+ nome : Grand Theft Auto V (GTA 5) ps4
+ nome : Grand Theft Auto V (GTA 5) xone
+ nome : Grand Theft Auto V (GTA 5) ps3
+ nome : Grand Theft Auto V (GTA 5) x360
+ nome : The Last of Us ps3
+ nome : The Elder Scrolls V: Skyrim ps3
+ nome : The Elder Scrolls V: Skyrim x360
+ nome : The Elder Scrolls V: Skyrim pc
+ nome : Uncharted 3: L'Inganno di Drake ps3
+ nome : LittleBigPlanet ps3
+ nome : Super Mario Galaxy wii
+ nome : Resident Evil 4 (Biohazard 4) gc
+ nome : Xenoblade Chronicles: Definitive Edition nsw
+ nome : Persona 5 Royal ps4
+ nome : Red Dead Redemption 2 ps4
+ nome : Red Dead Redemption 2 xone
+ nome : Persona 5 ps4
+ nome : Xenoblade Chronicles X wiiu
+ nome : Super Mario Galaxy 2 wiiu
+ nome : Mario Kart 8 wiiu
+ nome : Bravely Default 3ds
+ nome : Super Mario 3D World wiiu
+ nome : Pokémon X 3ds
+ nome : Pokémon Y 3ds
+ nome : Fire Emblem: Awakening 3ds
+ nome : Minecraft pc
+ nome : Xenoblade Chronicles wii
+ nome : LittleBigPlanet 2 ps3
+ nome : StarCraft II: Wings of Liberty pc
+ 

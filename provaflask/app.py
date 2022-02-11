@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+from ..src import provaindice
 
 # configurazioni iniziali
 app = Flask(__name__)
@@ -18,7 +19,10 @@ def hello_world():  # put application's code here
 
 @app.route('/results.html', methods=['POST', 'GET'])
 def risultati():
-    pass
+    query = {'text': request.args.get('query')}
+    text_stemmed = provaindice.preprocessing(query)
+    return render_template('results.html', context=text_stemmed)
+
 
 
 if __name__ == '__main__':
