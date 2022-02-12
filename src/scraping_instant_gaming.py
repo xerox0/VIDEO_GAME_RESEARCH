@@ -11,7 +11,7 @@ def start_soup(link):
 
 f = open('../database/scrape_instant_gaming.txt', 'w')
 
-for x in range(5,120,5):  # i giochi sono in ordine di uscita, facendo così prendo giochi usciti in un lungo lasso di tempo
+for x in range(5 ,120, 5):  # i giochi sono in ordine di uscita, facendo così prendo giochi usciti in un lungo lasso di tempo
     base_link = f"https://www.instant-gaming.com/it/ricerca/?sort_by=avail_date_asc&page={x}"
     print(f'Scansiono la pag n.{x}')
     game_tag = start_soup(base_link).find_all('a', class_='cover')  # è il tag 'a' che contiene il link della pagina del gioco
@@ -25,7 +25,7 @@ for x in range(5,120,5):  # i giochi sono in ordine di uscita, facendo così pre
             if game_description is None:
                 continue
             game_developer = game_soup.find('a', content='Developer').string.replace('\n', '')
-            # game_publisher = game_soup.find('a', content='Publisher').string.replace('\n', ' ')
+
             # estrazione della piattaforma
             platform = game_soup.find('div', class_='subinfos').contents[1]
             l = []
@@ -39,7 +39,6 @@ for x in range(5,120,5):  # i giochi sono in ordine di uscita, facendo così pre
         f.write(
                 f'{game_title}\n'
                 f'{game_developer}\n'
-                # f'{game_publisher}\n '
                 f'{platform}\n'
                 )
         for string in game_description.stripped_strings:  # estrae la descrizione, senza i tag html
