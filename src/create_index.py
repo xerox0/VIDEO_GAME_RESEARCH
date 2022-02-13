@@ -35,13 +35,13 @@ def indexing(file, website):
     l = []  # inserirò i nomi dei giochi. servirà poi per verificare se un gioco è stato già inserito
     while True:
         writer = ix.writer()
-        scraped_title = f.readline()
+        scraped_title = f.readline().rstrip('\n')
         if scraped_title == 'EOF':  # controllo se sono arrivato alla fine del file
             break
 
-        scraped_developer = f.readline()
-        scraped_platform = f.readline()
-        scraped_content = f.readline()
+        scraped_developer = f.readline().rstrip('\n')
+        scraped_platform = f.readline().rstrip('\n')
+        scraped_content = f.readline().rstrip('\n')
 
         if scraped_title in l:  # se il gioco è stato già inserito nell'indice, non reinserirlo
             writer.commit()
