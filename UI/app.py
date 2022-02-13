@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect
 
-from src import processing_query
-from processing_query import
+from ..src import processing_query
+
+#from processing_query import process_query
 # configurazioni iniziali
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -22,7 +23,7 @@ def home():  # put application's code here
 def risultati():
     query = {'text': request.args.get('generic'), 'developer': request.args.get('developer'),
              'platform': request.args.get('platform')}
-    list = process_query
+    list = processing_query.process_query(query)
     """processare la query qui. mandarla ai due indici. Pseudocodice:
         x= process_query(query, 'instant_gaming') # ritorna i risultati della query. In process cercherà sia in instant gaming, sia in m
         multiplayer
