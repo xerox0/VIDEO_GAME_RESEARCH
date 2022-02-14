@@ -1,9 +1,6 @@
-import sys
-sys.path.append("..")
 from src import processing_query
+from src.merging_ranking import threshold_edited, loaddata
 from flask import Flask, render_template, request, redirect
-
-# from ..src import processing_query
 
 # configurazioni iniziali
 app = Flask(__name__)
@@ -19,20 +16,18 @@ def home():
 def risultati():
     query = {'text': request.args.get('generic'), 'developer': request.args.get('developer'),
              'platform': request.args.get('platform')}
-    print(query)
-    results_list = processing_query.process_query(query, 'multiplayer')
-    list = processing_query.process_query(query)
 
-    """processare la query qui. mandarla ai due indici. Pseudocodice:
-        x= process_query(query, 'instant_gaming') # ritorna i risultati della query. In process cercherà sia in instant gaming, sia in m
-        multiplayer
-        y = process_query(query, 'multiplayer')
-        risultati = threshold (x,y)
-        renderizza risultati a results.html
-        """
-    print(results_list)
+    # processo la query in entrambi gli indici
+    results_multiplayer = processing_query.process_query(query, 'multiplayer')
+    results_instant_gaming = processing_query.process_query(query, 'instant_gaming')
+
+    # fusione dei risultati
+    l1 = loaddata(results_multiplayer)
+    l2 = loaddata(results_instant_gaming)
+    merged_results = threshold_edited(l1, l2, 5) #dizionario con titoli e score, ora devo
+
     # text_stemmed = create_index.preprocessing(query)
-    return render_template('results.html', data=results_list, query=query)
+    return render_template('results.html', data=merged_results, query=query)
 
 
 if __name__ == '__main__':

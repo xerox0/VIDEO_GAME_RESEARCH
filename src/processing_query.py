@@ -33,7 +33,7 @@ def process_query(q, website):
         #     print(x)
     return results
     # r = ix.searcher().search(Every('title'), limit=None, sortedby='title')
-diz = {'text': 'super mario', 'developer': 'nintendo', 'platform': '3ds'}
+# diz = {'text': 'super mario', 'developer': 'nintendo', 'platform': '3ds'}
 # process_query(diz, 'multiplayer')
 
 """
