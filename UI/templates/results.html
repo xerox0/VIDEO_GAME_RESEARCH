@@ -1,31 +1,20 @@
-<!--
 {%  extends 'base.html' %}
 {%  block title %} Risultati della ricerca {% endblock %}
 
 {%  block content %}
-<table>
-    <tr>
-        <th>{{ url_for('static', filename='img/logo.png')}}</th>
-    </tr>
-{#    qui un for per i risultati {% for %}#}
-    <tr>
-        <th></th>
-    </tr>
-</table>
-{% endblock %}-->
-<!DOCTYPE html>
-<html lang="en">
+<p> Risultati relativi alla ricerca:<br><br>
+  Titolo/descrizione: {{ query['text'] }}<br><br>
+  {% if query['developer'] %}
+  Sviluppatore: {{ query['developer'] }}<br><br>
+  {% endif %}
+  {% if query['platform'] %}
+  Sviluppatore: {{ query['platform'] }}<br><br>
+  {% endif %} </p>
 
-
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/icon type">
-</head>
-
-<body>
-
-
-</body>
-</html>
+  {% for element in data %}
+    <article>
+      <h2> {{ element['title'] }} </h2>
+      <p> {{ element['content'] }} </p>
+    </article>
+  {% endfor %}
+{% endblock %}

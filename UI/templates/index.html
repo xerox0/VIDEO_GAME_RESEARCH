@@ -3,11 +3,11 @@
 
 {%  block content %}
     <img src="{{ url_for('static', filename='logo.png') }}">
-    <form method="post" action="results.html">
+    <form method="get" action="results.html">
         <table>
             <tbody>
             <tr>
-                <th><input type="text" name="generic" placeholder="Digita del testo"></th>
+                <th><input type="search" name="generic" placeholder="Digita del testo"></th>
             </tr>
             <tr>
                 <th><input type="text" name="developer" placeholder="Cerca per sviluppatore"></th>
