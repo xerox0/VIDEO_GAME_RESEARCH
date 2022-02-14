@@ -27,13 +27,14 @@ def process_query(q, website):
     filter = filtering(q, ix.schema)
     print(filter)
     with ix.searcher() as s:
-        results = s.search(user_q, filter=filter)
+        results = s.search(user_q, filter=filter, limit=None)
         print(results)
-        for x in results:
-            print(x)
+        # for x in results:
+        #     print(x)
+    return results
     # r = ix.searcher().search(Every('title'), limit=None, sortedby='title')
 diz = {'text': 'super mario', 'developer': 'nintendo', 'platform': '3ds'}
-process_query(diz, 'multiplayer')
+# process_query(diz, 'multiplayer')
 
 """
 se platform:

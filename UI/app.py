@@ -1,7 +1,9 @@
 import sys
 sys.path.append("..")
-from flask import Flask, render_template, request
 from src import processing_query
+from flask import Flask, render_template, request, redirect
+
+# from ..src import processing_query
 
 # configurazioni iniziali
 app = Flask(__name__)
@@ -19,6 +21,8 @@ def risultati():
              'platform': request.args.get('platform')}
     print(query)
     results_list = processing_query.process_query(query, 'multiplayer')
+    list = processing_query.process_query(query)
+
     """processare la query qui. mandarla ai due indici. Pseudocodice:
         x= process_query(query, 'instant_gaming') # ritorna i risultati della query. In process cercherà sia in instant gaming, sia in m
         multiplayer
