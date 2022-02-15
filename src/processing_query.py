@@ -18,20 +18,23 @@ def filtering(q, schema):
         filters = None
     return filters
 
-
 def process_query(q, website):
     ix = open_dir(f"../indexdir_{website}")
     parser = MultifieldParser(["title", "content"], schema=ix.schema, group=OrGroup)
     user_q = parser.parse(q['text'])
 
     filter = filtering(q, ix.schema)
-    print(filter)
+    #print(filter)
     with ix.searcher() as s:
         results = s.search(user_q, filter=filter, limit=None)
-        print(results)
-        for x in results:
-            print(x)
-    return results
+        l = []
+        for hit in results:
+            l.append(hit['title'])
+            l.append(hit.score)
+            l.append(hit['content'])
+            l.append(hit['developer'])
+            l.append(hit['platform'])
+        return l
     # r = ix.searcher().search(Every('title'), limit=None, sortedby='title')
 # diz = {'text': 'super mario', 'developer': 'nintendo', 'platform': '3ds'}
 # process_query(diz, 'multiplayer')
