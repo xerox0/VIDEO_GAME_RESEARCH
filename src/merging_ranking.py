@@ -30,11 +30,18 @@ def threshold_edited(L1, L2, k):
         print(T)
         if L1[i] in visited and L2[i] in visited:
             continue
-        if L1[i] not in visited:
-            if L1[i] in L2:
-                visited.append(L1[i])
+
+        if L1[i] in L2:
+
                 score = L1[i + 1] + L2[L2.index(L1[i]) + 1]
                 description = L1[i + 2] + L2[L2.index(L1[i]) + 2]  # unisco le descrizioni
+                developer = L1[i + 3]
+                platform = L1[i + 4]
+                top_k[score] = [L1[i], description, developer, platform]
+        if L1[i] not in visited:
+                visited.append(L1[i])
+                score = L1[i + 1]
+                description = L1[i + 2]
                 developer = L1[i + 3]
                 platform = L1[i + 4]
                 top_k[score] = [L1[i], description, developer, platform]
@@ -44,11 +51,18 @@ def threshold_edited(L1, L2, k):
                 {15 : ['mario' , 'unione delle descrizioni' , 'nintendo' , 'wii'],
                 20 : ['gta', 'unione delle descrizioni', 'sony' , 'ps3'] } . Ho dovuto mettere il punteggio come chiave (prima era il valore),
                 perchè non si può usare una lista come chiave di un dizionario, quindi ho invertito """
-        if L2[i] not in visited:
-            if L2[i] in L1:
-                visited.append(L2[i])
+
+        if L2[i] in L1:
+
                 score = L2[i + 1] + L1[L1.index(L2[i]) + 1]
                 description = L1[i + 2] + L2[L1.index(L2[i]) + 2]
+                developer = L2[i + 3]
+                platform = L2[i + 4]
+                top_k[score] = [L2[i], description, developer, platform]
+        if L2[i] not in visited:
+                visited.append(L2[i])
+                score = L2[i + 1]
+                description = L1[i + 2]
                 developer = L2[i + 3]
                 platform = L2[i + 4]
                 top_k[score] = [L2[i], description, developer, platform]
