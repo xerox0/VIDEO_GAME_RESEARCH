@@ -20,13 +20,12 @@ def risultati():
     # processo la query in entrambi gli indici
     results_multiplayer = processing_query.process_query(query, 'multiplayer')
     results_instant_gaming = processing_query.process_query(query, 'instant_gaming')
-
+    print(results_multiplayer)
     # fusione dei risultati
     l1 = loaddata(results_multiplayer)
     l2 = loaddata(results_instant_gaming)
-    merged_results = threshold_edited(l1, l2, 5) #dizionario con titoli e score, ora devo
+    merged_results = threshold_edited(l1, l2, 5)  # dizionario con risultati
 
-    # text_stemmed = create_index.preprocessing(query)
     return render_template('results.html', data=merged_results, query=query)
 
 
