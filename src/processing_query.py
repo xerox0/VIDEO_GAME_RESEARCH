@@ -27,6 +27,7 @@ def process_query(q, website):
     #print(filter)
     with ix.searcher() as s:
         results = s.search(user_q, filter=filter, limit=None)
+        # salvo i risultati in una lista, in modo da manipolarli più comodamente nell'algoritmo di fusione dei ranking
         l = []
         for hit in results:
             l.append(hit['title'])
@@ -39,17 +40,3 @@ def process_query(q, website):
 # diz = {'text': 'super mario', 'developer': 'nintendo', 'platform': '3ds'}
 # process_query(diz, 'multiplayer')
 
-"""
-se platform:
-    se dev:
-        cerca dev e plat
-    else
-        cerca plat
-elif dev:
-    cerca dev
-else
-    nulla (pass)
-        """
-# print(len(r))
-# for x in r:
-#     print(x['title'])

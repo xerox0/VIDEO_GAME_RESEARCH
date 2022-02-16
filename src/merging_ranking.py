@@ -1,20 +1,6 @@
 import operator
 
 
-def loaddata(results):
-    """inserisco i risultati delle ricerche in due liste, in modo da gestire più comodamente i dati
-     nell'algoritmo di threshold"""
-
-    l = []
-    for hit in results:
-        l.append(hit['title'])
-        l.append(hit.score)
-        l.append(hit['content'])
-        l.append(hit['developer'])
-        l.append(hit['platform'])
-    return l
-
-
 def threshold_edited(L1, L2, k):
     """ funzione che unisce i due ranking e il contenuto delle informazioni della stessa entità del mondo reale.
     Tramite il titolo del videogioco riconosciamo che due entità provenienti da due fonti diverse sono la stessa entità
