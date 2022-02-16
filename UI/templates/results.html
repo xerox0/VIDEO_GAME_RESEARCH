@@ -11,10 +11,11 @@
   Sviluppatore: {{ query['platform'] }}<br><br>
   {% endif %} </p>
 
-  {% for element in data %}
+  {% for k,v in data.items() %}
     <article>
-      <h2> {{ element['title'] }} </h2>
-      <p> {{ element['content'] }} </p>
+      <h2> {{ v[0] }} </h2>
+      <p> {{ v[1] }} </p>
+      <p>  {{ v[3] }}</p>
     </article>
   {% endfor %}
 {% endblock %}
