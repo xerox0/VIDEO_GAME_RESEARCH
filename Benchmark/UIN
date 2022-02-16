@@ -1,6 +1,12 @@
-Gioco di corse tra auto di Horizon | {Horizon AND auto}
+La nostra interfaccia prevede tre caselle di testo , di cui due di filtro :filtro_platform
+filtro_developer. Quando sono presenti nei benchmark , il testo va nella rispettiva casella di testo
 
-Super Mario su kart che gareggiano | {Super Mario} AND kart
+
+
+
+Gioco di corse tra auto di Horizon | Horizon AND auto
+
+Super Mario su kart che gareggiano | {Super Mario} OR kart
 
 Simulatore di guerra , sparatutto Duty | {Call of duty} AND war
 
@@ -12,8 +18,10 @@ Per recuperare un leggendario manufatto dell'antica India :Uncharted | Uncharted
 
 La nuova espansione di Magic |{Might & Magic} AND {Heroes VI}
 
-Football simulator | Madden AND NFL
-
 Manager di calcio | Football AND Manager
 
 Simulatore di aerei da guerra :Microsoft | {Microsoft Flight} AND Simulator
+
+Super Mario sviluppato da nintendo per la console wii | {Super Mario} AND filter_developer: Nintendo
+
+Super Mario sviluppato da nintendo per la console wii | {Super Mario} AND filter_platform: wii

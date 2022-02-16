@@ -1,11 +1,11 @@
 
-from src import processing_query
-from src.merging_ranking import threshold_edited, loaddata
+#from src import processing_query
+#from video_games_research.src.merging_ranking import threshold_edited
 from flask import Flask, render_template, request, redirect
 
 # configurazioni iniziali
-from src.processing_query import process_query
-from src.merging_ranking import  threshold_edited
+from video_games_research.src.processing_query import process_query
+from video_games_research.src.merging_ranking import  threshold_edited
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
