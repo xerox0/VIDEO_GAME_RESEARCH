@@ -1,8 +1,6 @@
-from whoosh.index import create_in, open_dir
+from whoosh.index import create_in
 from whoosh.fields import *
 import os.path
-
-from whoosh.qparser import QueryParser
 from nltk.corpus import stopwords
 from nltk.stem.snowball import ItalianStemmer
 
@@ -20,7 +18,6 @@ def preprocessing(text):
         text_stemmed.append(stem.stem(parola))
 
     text_stemmed = " ".join(text_stemmed)
-
     return text_stemmed
 
 
@@ -49,16 +46,6 @@ def indexing(file, website):
 
         l.append(scraped_title)
         print(scraped_title)
-        # ix = open_dir("../indexdir")
-    # searcher = ix.searcher()
-    # parser = QueryParser("title", ix.schema)
-    #
-    # query = parser.parse(scraped_title)
-    # results = searcher.search(query)
-    # print(results)
-    # if results:
-    #     writer.commit()
-    #     continue
 
         preprocessed_content = preprocessing(scraped_content)
 

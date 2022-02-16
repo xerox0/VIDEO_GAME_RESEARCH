@@ -11,7 +11,7 @@ def start_soup(link):
 
 f = open('../database/scrape_instant_gaming.txt', 'w')
 
-for x in range(5 ,120, 5):  # i giochi sono in ordine di uscita, facendo così prendo giochi usciti in un lungo lasso di tempo
+for x in range(5, 120, 5):  # i giochi sul sono in ordine di uscita, facendo così prendo giochi usciti in un lungo lasso di tempo
     base_link = f"https://www.instant-gaming.com/it/ricerca/?sort_by=avail_date_asc&page={x}"
     print(f'Scansiono la pag n.{x}')
     game_tag = start_soup(base_link).find_all('a', class_='cover')  # è il tag 'a' che contiene il link della pagina del gioco
