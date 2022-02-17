@@ -11,7 +11,7 @@
     <p class="results">Piattaforma: {{ query['platform'] }}</p><br><br>
   {% endif %}
   {% if not data%}
-    <p class="error">Nessun risultato , prova a cambiare i parametri di ricerca</p>
+    <p class="error">Nessun risultato , prova a cambiare i parametri di ricerca. Ricorda che il titolo/descrizione è obbligatorio!</p>
   {% endif%}
 
   {% for k,v in data.items() %}
