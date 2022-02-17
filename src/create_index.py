@@ -4,7 +4,6 @@ import os.path
 from nltk.corpus import stopwords
 from nltk.stem.snowball import ItalianStemmer
 
-
 def preprocessing(text):
     stop_words = set(stopwords.words('italian'))
     text_processed = []

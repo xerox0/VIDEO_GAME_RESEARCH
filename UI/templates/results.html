@@ -2,21 +2,24 @@
 {%  block title %} Risultati della ricerca {% endblock %}
 
 {%  block content %}
-<p> Risultati relativi alla ricerca:<br><br>
-  Titolo/descrizione: {{ query['text'] }}<br><br>
+  <h3> Risultati relativi alla ricerca:</h3>
+  <p class="results"> Titolo/descrizione: {{ query['text'] }}</p><br><br>
   {% if query['developer'] %}
-  Sviluppatore: {{ query['developer'] }}<br><br>
+    <p class="results">Sviluppatore: {{ query['developer'] }}</p><br><br>
   {% endif %}
   {% if query['platform'] %}
-  Piattaforma: {{ query['platform'] }}<br><br>
-  {% endif %} </p>
+    <p class="results">Piattaforma: {{ query['platform'] }}</p><br><br>
+  {% endif %}
+  {% if not data%}
+    <p class="error">Nessun risultato , prova a cambiare i parametri di ricerca</p>
+  {% endif%}
 
   {% for k,v in data.items() %}
     <article>
       <h2>  {{ v[0] }} </h2>
       <p>   {{ v[1] }} </p>
-      <p> Sviluppato da:  {{ v[2] }} </p>
-      <p> Piattaforma disponibile: {{ v[3] }}</p>
+      <p class="results"> Sviluppato da: {{ v[2] }} </p>
+      <p class="results"> Piattaforma disponibile: {{ v[3] }}</p>
     </article>
   {% endfor %}
 {% endblock %}

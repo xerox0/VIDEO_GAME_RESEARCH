@@ -1,1 +1,23 @@
  body {background-color: #FFFFFF;}
+
+ input {
+     width: 897px ;
+     height: 30px;
+ }
+
+ h2 {
+     color: cadetblue;
+ }
+ h4 {
+     color: chocolate;
+ }
+
+ .error {
+     color: red;
+     font-weight: bold;
+
+ }
+
+ .results {
+     font-style: italic;
+ }
