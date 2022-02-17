@@ -75,7 +75,7 @@ def threshold_edited(L1, L2, k):
                 results[L1[i + 1]] = [L1[i], L1[i + 2], L1[i + 3], L1[i + 4]]
             return results
         else:
-            for i in range(0, 5 * k, 5):
+            for i in range(0, len(L1), 5):
                 results[L1[i + 1]] = [L1[i], L1[i + 2], L1[i + 3], L1[i + 4]]
             return results
 

@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request
+from os.path import dirname, abspath
+
+import sys
+if   dirname(dirname(abspath(__file__))) not in sys.path:
+     sys.path.append(dirname(dirname(abspath(__file__))))
 
 
-import sys, os
-# if os.getcwd() not in sys.path:
-#     sys.path.append(os.getcwd())
-print(sys.path)
-
-from src.processing_query import process_query
+from src.processing_query import   process_query
 from src.merging_ranking import threshold_edited
 # from video_games_research.src.processing_query import process_query
 # from video_games_research.src.merging_ranking import threshold_edited
